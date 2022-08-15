@@ -6,7 +6,6 @@
 数据集来源：https://figshare.com/articles/dataset/brain_tumor_dataset/1512427
 
 -----------------------
-# MTRAN
 This is the source code for the article "Multi-task learning with residual attention for brain tumor segmentation and classification".
 
 To use it, after segmenting the data folder with data, type $python main.py train$
