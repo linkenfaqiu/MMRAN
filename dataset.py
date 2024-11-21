@@ -42,17 +42,7 @@ def make_dataset(root):
             #imgs.append((img))
     return imgs
 
-    # imgs=[]
-    # n = len(os.listdir(root))//2
-    # for i in range(n):
-    #     img=os.path.join(root,"%d.png"% (i + 1))       # 04d
-    #     mask=os.path.join(root,"%d_mask.png"% (i + 1))
-    #     imgs.append((img,mask))
-    #     # imgs.append((img, mask))    # 原先的
-    #     #imgs.append((img))
-    # return imgs
-
-class LiverDataset(Dataset):
+class BrainDataset(Dataset):
     def __init__(self, root, transform=None):   #, target_transform=None):
         imgs = make_dataset(root)
         self.imgs = imgs
@@ -61,15 +51,8 @@ class LiverDataset(Dataset):
 
     def __getitem__(self, index):
         x_path, y_path, label = self.imgs[index]
-        # print(index)
-        # print('***')
-        # print(x_path)
-        # print('******')
-        # print(y_path)
-        # print('*********')
-        print("现在处理的文件为", x_path)
-        #img_x = Image.open(x_path)
-        #img_y = Image.open(y_path)
+        # print("现在处理的文件为", x_path)
+
         # 这里才把文件从路径中取出来
         img_x = cv2.imread(x_path)
         img_y = cv2.imread(y_path)
@@ -87,7 +70,7 @@ class LiverDataset(Dataset):
             
             #img_x = self.transform(img_x)
             #random.seed(seed)
-            # print(seed)    # 目前来看两次seed都是同一个值
+            # print(seed)    # 目前来看两次seed都是同一个值，已经可以固定随机种子
         #if self.target_transform is not None:
             #img_y = self.target_transform(img_y)
             #print(img_x.shape)
